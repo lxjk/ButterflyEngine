@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+  elementFormDefault="qualified"
+  targetNamespace="ButterflyEngine_Story_1_0"
+  xmlns="ButterflyEngine_Story_1_0"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+
+  <xs:simpleType name="stringListType">
+    <xs:list itemType="xs:string"/>
+  </xs:simpleType>
+  
+  <!--Character type-->
+  <xs:complexType name ="characterType">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string"/>
+      <xs:element name="altNames" type="stringListType"/>
+      <xs:element name="age" type="xs:integer"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!--Settings type-->
+  <xs:complexType name ="settingsType">
+    <xs:sequence>
+      <xs:element name="characters" type="characterType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!--Story type-->
+  <xs:complexType name ="storyType">
+    <xs:sequence>
+      <xs:element name="settings" type="settingsType"/>
+      <xs:element name="storyText" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!--Declare the root element of the document-->
+  <xs:element name="story" type="storyType"/>
+  
+</xs:schema>
