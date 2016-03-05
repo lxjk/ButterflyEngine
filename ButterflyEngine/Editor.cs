@@ -159,29 +159,29 @@ namespace ButterflyEngine
             {
                 if (doc != null)
                 {
-                    switch ((StandardCommand)commandTag)
-                    {
-                        case StandardCommand.EditUndo:
-                            canDo = doc.Editor.CanUndo;
-                            break;
+                    //switch ((StandardCommand)commandTag)
+                    //{
+                    //    case StandardCommand.EditUndo:
+                    //        canDo = doc.Editor.CanUndo;
+                    //        break;
 
-                        case StandardCommand.EditRedo:
-                            canDo = doc.Editor.CanRedo;
-                            break;
+                    //    case StandardCommand.EditRedo:
+                    //        canDo = doc.Editor.CanRedo;
+                    //        break;
 
-                        case StandardCommand.EditCut:
-                        case StandardCommand.EditDelete:
-                            canDo = doc.Editor.HasSelection && !doc.Editor.ReadOnly;
-                            break;
+                    //    case StandardCommand.EditCut:
+                    //    case StandardCommand.EditDelete:
+                    //        canDo = doc.Editor.HasSelection && !doc.Editor.ReadOnly;
+                    //        break;
 
-                        case StandardCommand.EditCopy:
-                            canDo = doc.Editor.HasSelection;
-                            break;
+                    //    case StandardCommand.EditCopy:
+                    //        canDo = doc.Editor.HasSelection;
+                    //        break;
 
-                        case StandardCommand.EditPaste:
-                            canDo = doc.Editor.CanPaste;
-                            break;
-                    }
+                    //    case StandardCommand.EditPaste:
+                    //        canDo = doc.Editor.CanPaste;
+                    //        break;
+                    //}
                 }
             }
             else if (commandTag is Command)
@@ -211,44 +211,44 @@ namespace ButterflyEngine
             StoryDocument activeDocument = m_documentRegistry.ActiveDocument as StoryDocument;
             if (commandTag is StandardCommand)
             {
-                switch ((StandardCommand)commandTag)
-                {
-                    case StandardCommand.EditUndo:
-                        activeDocument.Editor.Undo();
-                        break;
+                //switch ((StandardCommand)commandTag)
+                //{
+                //    case StandardCommand.EditUndo:
+                //        activeDocument.Editor.Undo();
+                //        break;
 
-                    case StandardCommand.EditRedo:
-                        activeDocument.Editor.Redo();
-                        break;
+                //    case StandardCommand.EditRedo:
+                //        activeDocument.Editor.Redo();
+                //        break;
 
-                    case StandardCommand.EditCut:
-                        activeDocument.Editor.Cut();
-                        break;
+                //    case StandardCommand.EditCut:
+                //        activeDocument.Editor.Cut();
+                //        break;
 
-                    case StandardCommand.EditCopy:
-                        activeDocument.Editor.Copy();
-                        break;
+                //    case StandardCommand.EditCopy:
+                //        activeDocument.Editor.Copy();
+                //        break;
 
-                    case StandardCommand.EditPaste:
-                        activeDocument.Editor.Paste();
-                        break;
+                //    case StandardCommand.EditPaste:
+                //        activeDocument.Editor.Paste();
+                //        break;
 
-                    case StandardCommand.EditDelete:
-                        activeDocument.Editor.Delete();
-                        break;
-                }
+                //    case StandardCommand.EditDelete:
+                //        activeDocument.Editor.Delete();
+                //        break;
+                //}
             }
             else if (commandTag is Command)
             {
                 switch ((Command)commandTag)
                 {
-                    case Command.FindReplace:
-                        activeDocument.Editor.ShowFindReplaceForm();
-                        break;
+                    //case Command.FindReplace:
+                    //    activeDocument.Editor.ShowFindReplaceForm();
+                    //    break;
 
-                    case Command.Goto:
-                        activeDocument.Editor.ShowGoToLineForm();
-                        break;
+                    //case Command.Goto:
+                    //    activeDocument.Editor.ShowGoToLineForm();
+                    //    break;
                 }
             }
         }

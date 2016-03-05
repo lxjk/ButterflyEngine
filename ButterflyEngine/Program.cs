@@ -33,8 +33,9 @@ namespace ButterflyEngine
         {
             // important to call these before creating application host
             Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
             Application.DoEvents(); // see http://www.codeproject.com/buglist/EnableVisualStylesBug.asp?df=100&forumid=25268&exp=0&select=984714
-
+#if true
             // Set up localization support early on, so that user-readable strings will be localized
             //  during the initialization phase below. Use XML files that are embedded resources.
             Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.CurrentCulture;
@@ -112,6 +113,14 @@ namespace ButterflyEngine
 
             // Give components a chance to clean up.
             container.Dispose();
+#else
+            var mainForm = new FormTest
+            {
+                Icon = GdiUtil.CreateIcon(ResourceUtil.GetImage(Sce.Atf.Resources.AtfIconImage))
+            };
+
+            Application.Run(mainForm);
+#endif
 
         }
     }
